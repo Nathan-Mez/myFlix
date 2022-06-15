@@ -28,7 +28,7 @@ http.createServer((request, response) => {
       console.log(err);
     }
     else {
-      console.log(addr + 'Added to log.');          //"URL Added to log." displayed if appendFile is success
+      console.log(addr + ' Added to log.');          //"URL Added to log." displayed if appendFile is success
     }
   });
 
