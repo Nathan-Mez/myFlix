@@ -1,0 +1,25 @@
+
+body{
+  font-family: Helvetica;
+  font-size: 16px;
+}
+
+h1{
+  text-align: center;
+}
+td, th{
+  border: 1px solid #888;
+  height: 50px;
+  padding-left: 15px;
+}
+table{
+  border-collapse: collapse;
+  max-width: 1000px;
+  margin: auto;
+}
+thead{
+  background-color: #
+}
+code{
+  color: #4812CF;
+}

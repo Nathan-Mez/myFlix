@@ -2,24 +2,115 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Movie Api Documentation</title>
+    <title>Movie Api | Documentation</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Features Of The API</h1>
-    <ul>
-      <li>
-        The api is Node.js and Express application that use REST architecture, with URL endpoints.
-      </li>
-      <li>
-        This api provide Movie information in JSON format.
-      </li>
-      <li>
-        This api include user authentication, authorization code and data validation logic.
-      </li>
-      <li>
-        The api meet data security regulations.
-      </li>
-    </ul>
+    <h1>API Documentation</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>REQUEST</th>
+          <th>URL</th>
+          <th>HTTP METHOD</th>
+          <th>REQUEST DATA FORMAT</th>
+          <th>RESPONSE DATA BODY FORMAT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Get to the home page of the app</td>
+          <td>/</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>A simple welcome page, text message</td>
+        </tr>
+        <tr>
+          <td>Get a list of data of all movies</td>
+          <td>/movies</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>JSON object holding data about the movies</td>
+        </tr>
+        <tr>
+          <td>Get data about single movie by title</td>
+          <td>/movies/[Title]</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>JSON object holding data about the single movie<br>
+          <code>{                                   <br>
+                "title": "Title",                   <br>
+                "released_on": 0000,                <br>
+                "director": "Fistname Lastname",    <br>
+                "genre": "Genre",                   <br>
+                "runtime": "0hr 00min",             <br>
+                "description": "this is sample description, this is sample description"<br>
+                }</code></td>
+        </tr>
+        <tr>
+          <td>Get data about genre by title</td>
+          <td>/genres/[Name]</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>Text message holding description about the genre titled [Title]</td>
+        </tr>
+        <tr>
+          <td>Get data about director by name</td>
+          <td>/directors/[Name]</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>JSON object holding data about the director<br>
+          <code>{                                     <br>
+              'name': 'director name',                <br>
+              'birth_date': 'director birth_date',    <br>
+              'awards': ['award-1', 'awadr-2']        <br>
+          }
+          </code></td>
+        </tr>
+        <tr>
+          <td>Register a new user</td>
+          <td>/users</td>
+          <td>POST</td>
+          <td>A JSON object holding data about user to Register
+            <code><br>{               <br>
+                   name: "name",      <br>
+                   email: "email",    <br>
+                    }
+           </code>
+         </td>
+         <td>text message indicating whether the new user was succesfully registered</td>
+        </tr>
+        <tr>
+          <td>Update user info</td>
+          <td>/users/[Name]/[Email]</td>
+          <td>PUT</td>
+          <td>None</td>
+          <td>text message indicating whether the user info was updated</td>
+        </tr>
+        <tr>
+          <td>Add movie to a list of favorites</td>
+          <td>/users/[Name]/[Title]</td>
+          <td>POST</td>
+          <td>None</td>
+          <td>text message indicating whether the new movie was added to Favorites list</td>
+        </tr>
+        <tr>
+          <td>Remove movie from a list of favorites</td>
+          <td>/users/[Name]/[Title]</td>
+          <td>DELETE</td>
+          <td>None</td>
+          <td>text message indicating whether the movie was deleted from Favorites list</td>
+        </tr>
+        <tr>
+          <td>Deregister user email</td>
+          <td>/users/[Name]</td>
+          <td>DELETE</td>
+          <td>None</td>
+          <td>text message indicating whether the users email is deleted</td>
+        </tr>
+      </tbody>
+    </table>
+
 
 
   </body>
