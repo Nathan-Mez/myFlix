@@ -38,74 +38,157 @@
           <td>GET</td>
           <td>None</td>
           <td>JSON object holding data about the single movie<br>
-          <code>{                                   <br>
-                "title": "Title",                   <br>
-                "released_on": 0000,                <br>
-                "director": "Fistname Lastname",    <br>
-                "genre": "Genre",                   <br>
-                "runtime": "0hr 00min",             <br>
+          <code>{                                                                     <br>
+                "Genre": {                                                            <br>
+                          "Name": "Name",                                             <br>
+                          "Description": "A small paragrph
+                                          explaining the Genre"                        <br>
+                         },                                                            <br>
+                 "Director": {                                                            <br>
+                           "Name": "Name",                                             <br>
+                           "Bio": "A small paragrph about the bio of the Director",    <br>
+                           "Birth_date": "yyyy-mm-dd"                                  <br>
+                            }                                                           <br>
+                "Actors": [],                                                           <br>
+                "_id": "1sd4f5df2sd4f52sf5"                                             <br>
+                "Title": "Title",                                                       <br>
+                "Description" : "small plot about the movie",                           <br>
+                "Durtaion": "0h 00min",                                                 <br>
+                "Released": "yyyy",                                                     <br>
+                "Featured": "true/false",                                               <br>
+                "MovieID": "00"                                                         <br>
                 }</code></td>
         </tr>
         <tr>
           <td>Get data about genre by title</td>
-          <td>/genres/[Name]</td>
+          <td>/movies/genres/[Name]</td>
           <td>GET</td>
           <td>None</td>
-          <td>Text message holding description about the genre titled [Title]</td>
+          <td>Text message holding description about the genre titled [Title]            <br>
+              <code>{                                                                    <br>
+                     "Name": "Name",                                                     <br>
+                     "Description": "A small paragrph
+                                     explaining the Genre"                               <br>
+                    }, </code></td>
         </tr>
         <tr>
           <td>Get data about director by name</td>
-          <td>/directors/[Name]</td>
+          <td>/movies/directors/[Name]</td>
           <td>GET</td>
           <td>None</td>
           <td>JSON object holding data about the director<br>
           <code>{                                     <br>
-              'name': 'director name',                <br>
-              'birth_date': 'director birth_date',    <br>
-              'awards': ['award-1', 'awadr-2']        <br>
+              'Name': 'director name',                <br>
+              'Bio' : 'Biography of the director'     <br>
+              'Birth_date': 'director birth_date'     <br>
           }
           </code></td>
+        </tr>
+        <tr>
+          <td>Get users info</td>
+          <td>/users</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>JSON list of all users</td>
+        </tr>
+        <tr>
+          <td>Get user by Username</td>
+          <td>/users/[Username]</td>
+          <td>GET</td>
+          <td>None</td>
+          <td><code>
+               {                                                    <br>
+                 "_id" : "sd4f65s4df64df4s65d4f",                   <br>
+                 "Username": "username",                            <br>
+                 "Password": "Password",                            <br>
+                 "Email": "email@email.com",                        <br>
+                 "Birth_date": "yyyy-mm-dd"                         <br>
+               }</code></td>
         </tr>
         <tr>
           <td>Register a new user</td>
           <td>/users</td>
           <td>POST</td>
           <td>A JSON object holding data about user to Register
-            <code><br>{               <br>
-                   name: "name",      <br>
-                   email: "email",    <br>
+            <code><br>{                                <br>
+                   "Username": "name",                 <br>
+                   "Password": "Password",             <br>
+                   "Email": "aa@bb.com",              <br>
+                   "Birth_date": "yyyy-mm-dd"          <br>
                     }
            </code>
          </td>
-         <td>text message indicating whether the new user was succesfully registered</td>
+         <td>A JSON object holding data about user Registered
+           <code><br>{                                <br>
+                  "Username": "name",                 <br>
+                  "Password": "Password",             <br>
+                  "Email": "aa@bb.com",              <br>
+                  "Birth_date": "yyyy-mm-dd"          <br>
+                   }
+          </code>
+        </td>
         </tr>
         <tr>
           <td>Update user info</td>
-          <td>/users/[Name]/[Email]</td>
+          <td>/users/[Username]</td>
           <td>PUT</td>
-          <td>None</td>
-          <td>text message indicating whether the user info was updated</td>
+          <td>A JSON object holding data about user to be updated
+            <code><br>{                                <br>
+                   "Username": "name",                 <br>
+                   "Password": "Password",             <br>
+                   "Email": "aa@bb.com",              <br>
+                   "Birth_date": "yyyy-mm-dd"          <br>
+                    }
+           </code>
+         </td>
+         <td>A JSON object holding data about user Updated
+           <code><br>{                                <br>
+                  "Username": "name",                 <br>
+                  "Password": "Password",             <br>
+                  "Email": "aa@bb.com",              <br>
+                  "Birth_date": "yyyy-mm-dd"          <br>
+                   }
+          </code>
+        </td>
         </tr>
         <tr>
           <td>Add movie to a list of favorites</td>
-          <td>/users/[Name]/[Title]</td>
+          <td>/users/[Username]/movies/[MovieID]</td>
           <td>POST</td>
           <td>None</td>
-          <td>text message indicating whether the new movie was added to Favorites list</td>
+          <td>A JSON object with movie 'MovieID' added from favorite list
+            <code><br>{                                <br>
+                   "Username": "name",                 <br>
+                   "Password": "Password",             <br>
+                   "Email": "aa@bb.com",               <br>
+                   "Birth_date": "yyyy-mm-dd"          <br>
+                   "FavoriteMovies": [MovieID]         <br>
+                    }
+           </code>
+         </td>
         </tr>
         <tr>
           <td>Remove movie from a list of favorites</td>
-          <td>/users/[Name]/[Title]</td>
+          <td>/users/[Username]/movies/[MovieID]</td>
           <td>DELETE</td>
           <td>None</td>
-          <td>text message indicating whether the movie was deleted from Favorites list</td>
+          <td>A JSON object with movie 'MovieID' removed from favorite list
+            <code><br>{                                <br>
+                   "Username": "name",                 <br>
+                   "Password": "Password",             <br>
+                   "Email": "aa@bb.com",               <br>
+                   "Birth_date": "yyyy-mm-dd"          <br>
+                   "FavoriteMovies": [MovieID]         <br>
+                    }
+           </code>
+         </td>
         </tr>
         <tr>
-          <td>Deregister user email</td>
-          <td>/users/[Name]</td>
+          <td>Deregister user</td>
+          <td>/users/[Username]</td>
           <td>DELETE</td>
           <td>None</td>
-          <td>text message indicating whether the users email is deleted</td>
+          <td>text message indicating whether the user is Deregistered</td>
         </tr>
       </tbody>
     </table>
