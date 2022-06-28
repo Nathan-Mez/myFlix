@@ -32,7 +32,7 @@ mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifie
 //Get list of data on all movies
 
 app.get('/', (req, res) => {
-    res.send("Welcome to Movie api, myFlix!");
+    res.send("Welcome to Movie api, GrandFlix!");
 });
 
 
