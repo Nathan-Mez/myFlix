@@ -32,13 +32,13 @@ let userSchema = mongoose.Schema({
 });
 
 //Hash submitted Passwords
-userSchema.statics.hashPassword = (password) => {
-  return bcrypt.hashSync(password, 10);
+userSchema.statics.hashPassword = (Password) => {
+  return bcrypt.hashSync(Password, 10);
 };
 
 //compares submitted hashed passwords with the hashed passwords
-userSchema.methods.validatePassword = function(password) {
-  return bcrypt.compareSync(password, this.Password);
+userSchema.methods.validatePassword = function(Password) {
+  return bcrypt.compareSync(Password, this.Password);
 };
 
 
